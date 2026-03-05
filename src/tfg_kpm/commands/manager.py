@@ -64,9 +64,9 @@ def install_package(repository: str, branch: str):
     for v in data.fluidtags:
         insert_after(server_lines, fluidtag_marker, v)
     
-    with open(main_server_script, "w") as f:
+    with open(main_server_script, "w", encoding="utf-8") as f:
         for item in server_lines:
-            f.write(f"{item}\n",encoding="utf-8")
+            f.write(f"{item}\n")
         
     
     
