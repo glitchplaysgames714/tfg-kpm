@@ -22,4 +22,4 @@ jobs:
 
       - name: Publish to TestPyPI
         run: |
-          uv publish --index-url https://test.pypi.org/legacy/
+          uv publish --index https://test.pypi.org/legacy/
