@@ -1,4 +1,4 @@
-from .utils import error, fetch_toml
+from .utils import error, fetch_toml, format_strings
 from dataclasses import dataclass
 from typing import Self
 
@@ -30,10 +30,10 @@ class Package:
         
         fields = {
             "name": main_data["name"],
-            "recipes": package_data.get("recipes", []),
-            "itemtags": package_data.get("itemtags", []),
-            "blocktags": package_data.get("blocktags", []),
-            "fluidtags": package_data.get("fluidtags", [])
+            "recipes": format_strings(package_data.get("recipes", [])),
+            "itemtags": format_strings(package_data.get("itemtags", [])),
+            "blocktags": format_strings(package_data.get("blocktags", [])),
+            "fluidtags": format_strings(package_data.get("fluidtags", []))
         }
         
         return cls(**fields)

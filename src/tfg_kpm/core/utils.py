@@ -71,3 +71,19 @@ def insert_after(lst, search_value, value):
         lst.insert(lst.index(search_value)+1, value)
     except ValueError:
         lst.append(search_value)
+        
+def format_strings(strings):
+    formatted_list = []
+    
+    for s in strings:
+        if any(c.isspace() for c in s):
+            error("[red]Class names[/red] cannot contain [red]whitespace[/red]")
+        
+        s = "   " + s
+        
+        if not s.endswith("(event)"):
+            s = s + "(event)"
+        
+        formatted_list.append(s)
+    
+    return formatted_list
