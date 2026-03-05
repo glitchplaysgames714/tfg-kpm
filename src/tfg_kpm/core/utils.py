@@ -31,7 +31,7 @@ def fetch_toml(package: str, branch: str) -> dict:
 
     data = parse(response.text)
 
-    if "package" not in data:
+    if "package" not in data["tfg-kpm"]:
         error(
             'Failed to find [red]"package"[/red] section in '
             f"[red]registry.toml[/red] from [red]{name}[/red]"
