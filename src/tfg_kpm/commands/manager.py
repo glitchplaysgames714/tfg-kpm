@@ -59,16 +59,21 @@ def install_package(repository: str, branch: str):
     
     for line in server_lines:
         new_server_lines.append(line)
-        
-        if recipe_marker in line:
-            new_server_lines.extend(data.recipes)
-        elif itemtag_marker in line:
-            new_server_lines.extend(data.itemtags)
-        elif blocktag_marker in line:
-            new_server_lines.extend(data.blocktags)
-        elif fluidtag_marker in line:
-            new_server_lines.extend(data.fluidtags)
-            
-    main_server_script.write_text("\n".join(new_server_lines) + "\n", encoding="utf-8")
 
-    
+        # Determine which marker matches this line
+        if recipe_marker in line:
+            for s in data.recipes:
+                new_server_lines.append(s + "\n")
+        elif itemtag_marker in line:
+            for s in data.itemtags:
+                new_server_lines.append(s + "\n")
+        elif blocktag_marker in line:
+            for s in data.blocktags:
+                new_server_lines.append(s + "\n")
+        elif fluidtag_marker in line:
+            for s in data.fluidtags:
+                new_server_lines.append(s + "\n")
+
+    # Write everything back safely
+    with main_server_script.open("w", encoding="utf-8") as f:
+        f.writelines(new_server_lines)
