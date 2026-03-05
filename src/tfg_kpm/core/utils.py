@@ -31,9 +31,9 @@ def fetch_toml(package: str, branch: str) -> dict:
 
     data = parse(response.text)
 
-    if "project" not in data:
+    if "package" not in data:
         error(
-            'Failed to find [red]"project"[/red] section in '
+            'Failed to find [red]"package"[/red] section in '
             f"[red]registry.toml[/red] from [red]{name}[/red]"
         )
 
