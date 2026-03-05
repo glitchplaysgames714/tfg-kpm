@@ -1,6 +1,6 @@
 import typer
 from .core.errors import Errors
-from .commands.manager import install_package
+from .commands.manager import install_package, list_packages
 
 app = typer.Typer()
 
@@ -9,6 +9,14 @@ def install(package: str, branch: str = "main"):
     Errors(["invalid_server"]).check()
     
     install_package(package, branch)
+
+@app.command()
+def list():
+    Errors(["invalid_server"]).check()
+    
+    
+    for package in list_packages():
+        print(package)
 
 
 @app.command()

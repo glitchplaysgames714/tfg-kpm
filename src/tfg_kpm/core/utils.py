@@ -79,7 +79,7 @@ def format_strings(strings):
         if any(c.isspace() for c in s):
             error("[red]Class names[/red] cannot contain [red]whitespace[/red]")
         
-        s = "   " + s
+        s = "    " + s
         
         if not s.endswith("(event)"):
             s = s + "(event)"
