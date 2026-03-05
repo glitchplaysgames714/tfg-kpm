@@ -1,11 +1,11 @@
 [project]
 name = "tfg-kpm"
-version = "0.1.7"
+version = "0.1.8"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 license = "CC-BY-NC-SA-4.0"
-dependencies = ["typer==0.24.1", "click", "rich"]
+dependencies = ["typer==0.24.1", "click", "rich", "requests", "tomlkit"]
 
 [project.scripts]
 tfg-kpm = "tfg_kpm.app:app"

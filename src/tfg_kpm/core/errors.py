@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from utils import error
+from .utils import error
 
 SUPPORTED_VERSION = "2.22.0"
 

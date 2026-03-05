@@ -1,5 +1,5 @@
-from core.package import Package
-from core.utils import error
+from ..core.package import Package
+from ..core.utils import error
 from pathlib import Path
 import requests
 import io
