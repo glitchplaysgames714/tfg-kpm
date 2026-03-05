@@ -64,3 +64,10 @@ def error(message: str) -> None:
 
     console.print(f"[bold red]ERROR[/bold red] — [white]{message}[/white]")
     sys.exit(1)
+    
+    
+def insert_after(lst, search_value, value):
+    try:
+        lst.insert(lst.index(search_value)+1, value)
+    except ValueError:
+        lst.append(search_value)

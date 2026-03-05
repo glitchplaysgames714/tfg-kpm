@@ -1,5 +1,5 @@
 from ..core.package import Package
-from ..core.utils import error
+from ..core.utils import error, insert_after
 from pathlib import Path
 import requests
 import io
@@ -49,31 +49,24 @@ def install_package(repository: str, branch: str):
     
     main_server_script = Path.cwd() / "kubejs" / "server_scripts" / "main_server_script.js"
     server_lines = main_server_script.read_text(encoding="utf-8").splitlines()
-    new_server_lines = []
     
     recipe_marker = "ServerEvents.recipes(event => {"
     itemtag_marker = "ServerEvents.tags('item', event => {"
     blocktag_marker = "ServerEvents.tags('block', event => {"
     fluidtag_marker = "ServerEvents.tags('fluid', event => {"
     
+    for v in data.recipes:
+        insert_after(server_lines, recipe_marker, v)
+    for v in data.itemtags:
+        insert_after(server_lines, itemtag_marker, v)
+    for v in data.blocktags:
+        insert_after(server_lines, blocktag_marker, v)
+    for v in data.fluidtags:
+        insert_after(server_lines, fluidtag_marker, v)
     
-    for line in server_lines:
-        new_server_lines.append(line)
-
-        # Determine which marker matches this line
-        if recipe_marker in line:
-            for s in data.recipes:
-                new_server_lines.append(s + "\n")
-        elif itemtag_marker in line:
-            for s in data.itemtags:
-                new_server_lines.append(s + "\n")
-        elif blocktag_marker in line:
-            for s in data.blocktags:
-                new_server_lines.append(s + "\n")
-        elif fluidtag_marker in line:
-            for s in data.fluidtags:
-                new_server_lines.append(s + "\n")
-
-    # Write everything back safely
-    with main_server_script.open("w", encoding="utf-8") as f:
-        f.writelines(new_server_lines)
+    with open(main_server_script, "w") as f:
+        for item in server_lines:
+            f.write(f"{item}\n")
+        
+    
+    
