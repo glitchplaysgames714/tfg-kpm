@@ -31,18 +31,19 @@ def install_package(repository: str, branch: str):
     with zipfile.ZipFile(io.BytesIO(response.content)) as z:
         base_folder = f"{repository}-{branch}/"
         for member in z.namelist():
-            # Only process server_scripts or registry.toml
             if member.startswith(base_folder + "server_scripts/") or member == base_folder + "registry.toml":
-                # Strip base_folder and server_scripts/ if present
                 relative_path = member[len(base_folder):]
                 if relative_path.startswith("server_scripts/"):
                     relative_path = relative_path[len("server_scripts/"):]
 
-                # Make sure directories exist
                 target_path = Path(destination) / relative_path
+
+                if member.endswith("/"):
+                    # Skip directories, mkdir handles them below
+                    continue
+
                 target_path.parent.mkdir(parents=True, exist_ok=True)
 
-                # Extract file
                 with z.open(member) as src, open(target_path, "wb") as dst:
                     shutil.copyfileobj(src, dst)
     
