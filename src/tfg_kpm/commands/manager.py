@@ -32,7 +32,7 @@ def install_package(repository: str, branch: str):
         z.extractall(path=destination,members=[m for m in z.namelist() if m.startswith(base_folder + "server_scripts/") or m == base_folder + "registry.toml"])
     
     main_server_script = Path.cwd() / "kubejs" / "server_scripts" / "main_server_script.js"
-    server_lines = main_server_script.read_text().splitlines()
+    server_lines = main_server_script.read_text(encoding="utf-8").splitlines()
     new_server_lines = []
     
     recipe_marker = "ServerEvents.recipes(event => {"
