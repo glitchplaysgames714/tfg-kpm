@@ -53,6 +53,6 @@ def install_package(repository: str, branch: str):
         elif fluidtag_marker in line:
             new_server_lines.extend(data.fluidtags)
             
-    main_server_script.write_text("\n".join(new_server_lines) + "\n")
+    main_server_script.write_text("\n".join(new_server_lines) + "\n", encoding="utf-8")
 
     
