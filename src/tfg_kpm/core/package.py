@@ -17,7 +17,7 @@ class Package:
         with Progress(
             SpinnerColumn(finished_text="✅"),
             TextColumn("[progress.description]{task.description}"),
-            transient=True,
+            transient=False,
         ) as progress:
             progress.add_task(description=f"Fetching package data from {package}@{branch}")
             if package.count("/") != 1:

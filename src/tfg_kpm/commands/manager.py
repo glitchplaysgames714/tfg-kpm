@@ -17,7 +17,7 @@ def install_package(repository: str, branch: str):
     with Progress(
         SpinnerColumn(finished_text="✅"),
         TextColumn("[progress.description]{task.description}"),
-        transient=True,
+        transient=False,
     ) as progress:
         task = progress.add_task(description="Fetching package from github")
         author, repository = repository.split("/")
@@ -71,29 +71,29 @@ def install_package(repository: str, branch: str):
     with Progress(
         SpinnerColumn(finished_text="✅"),
         TextColumn("[progress.description]{task.description}"),
-        transient=True,
+        transient=False,
     ) as progress:
-         recipetask = progress.add_task(description="Defining recipes in main_server_script.js")
-    for v in data.recipes:
-        insert_after(server_lines, recipe_marker, v)
-        progress.remove_task(recipetask)
-        itemtask = progress.add_task(description="Defining item tags in main_server_script.js")
-    for v in data.itemtags:
-        insert_after(server_lines, itemtag_marker, v)
-        progress.remove_task(itemtask)
-        blocktask = progress.add_task(description="Defining block tags in main_server_script.js")
-    for v in data.blocktags:
-        insert_after(server_lines, blocktag_marker, v)
-        progress.remove_task(blocktask)
-        fluidtask = progress.add_task(description="Defining fluid tags in main_server_script.js")
-    for v in data.fluidtags:
-        insert_after(server_lines, fluidtag_marker, v)
-        progress.remove_task(fluidtask)
-    print("Finished defining classes")
-    
-    with rich.progress.open(main_server_script, "w", encoding="utf-8", description="writing to main_server_script.js") as f:
-        for item in server_lines:
-            f.write(f"{item}\n")
+        recipetask = progress.add_task(description="Defining recipes in main_server_script.js")
+        for v in data.recipes:
+            insert_after(server_lines, recipe_marker, v)
+            progress.remove_task(recipetask)
+            itemtask = progress.add_task(description="Defining item tags in main_server_script.js")
+        for v in data.itemtags:
+            insert_after(server_lines, itemtag_marker, v)
+            progress.remove_task(itemtask)
+            blocktask = progress.add_task(description="Defining block tags in main_server_script.js")
+        for v in data.blocktags:
+            insert_after(server_lines, blocktag_marker, v)
+            progress.remove_task(blocktask)
+            fluidtask = progress.add_task(description="Defining fluid tags in main_server_script.js")
+        for v in data.fluidtags:
+            insert_after(server_lines, fluidtag_marker, v)
+            progress.remove_task(fluidtask)
+        print("Finished defining classes")
+        progress.add_task(description="Writing to main_server_script.js")
+        with open(main_server_script, "w", encoding="utf-8") as f:
+            for item in server_lines:
+                f.write(f"{item}\n")
         
 def list_packages():
     packagefolder = Path.cwd() / "kubejs" / "server_scripts" / "external_packages"
