@@ -1,0 +1,25 @@
+[project]
+name = "tfg-kpm"
+version = "0.1.7"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+license = "CC-BY-NC-SA-4.0"
+dependencies = ["typer==0.24.1", "click", "rich"]
+
+[project.scripts]
+tfg-kpm = "tfg_kpm.app:app"
+
+[build-system]
+requires = ["uv_build>=0.10.8,<0.11.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "tfg_kpm"
+module-root = "src"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
