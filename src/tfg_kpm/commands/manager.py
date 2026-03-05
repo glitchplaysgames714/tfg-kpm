@@ -66,7 +66,7 @@ def install_package(repository: str, branch: str):
     
     with open(main_server_script, "w") as f:
         for item in server_lines:
-            f.write(f"{item}\n")
+            f.write(f"{item}\n",encoding="utf-8")
         
     
     
