@@ -1,7 +1,7 @@
 name: Publish to TestPyPI
 
 on:
-  workflow_dispatch:  # Manual trigger in GitHub UI
+  workflow_dispatch:  # Manual trigger button
 
 jobs:
   build-and-publish:
@@ -13,7 +13,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.14"  # Adjust as needed
+          python-version: "3.11"
 
       - name: Install uv
         run: |
@@ -22,4 +22,4 @@ jobs:
 
       - name: Publish to TestPyPI
         run: |
-          uv publish --repository testpypi
+          uv publish --index-url https://test.pypi.org/legacy/
