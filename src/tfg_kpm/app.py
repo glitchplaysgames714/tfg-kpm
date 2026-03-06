@@ -1,14 +1,14 @@
 import typer
 from .core.errors import Errors
-from .commands.manager import install_package, list_packages
+from .commands.manager import install_package, list_packages, uninstall_package
 
 app = typer.Typer()
 
 @app.command()
-def install(package: str, branch: str = "main"):
+def install(repository: str, branch: str = "main"):
     Errors(["invalid_server"]).check()
     
-    install_package(package, branch)
+    install_package(repository, branch)
 
 @app.command()
 def list():
@@ -18,6 +18,13 @@ def list():
     for package in list_packages():
         print(package)
 
+@app.command()
+def uninstall(package: str):
+    Errors(["invalid_server"]).check()
+    
+    uninstall_package(package)
+    
+    
 
 @app.command()
 def hello(name: str):

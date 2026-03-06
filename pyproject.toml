@@ -1,11 +1,11 @@
 [project]
 name = "tfg-kpm"
 version = "0.1.22"
-description = "Add your description here"
+description = "The first package manager for terrafirmagreg addons."
 readme = "README.md"
 requires-python = ">=3.14"
 license = "CC-BY-NC-SA-4.0"
-dependencies = ["typer==0.24.1", "click", "rich", "requests", "tomlkit"]
+dependencies = ["typer==0.24.1", "click==8.3.1", "rich==14.3.3", "requests==2.32.5", "tomlkit==0.14.0"]
 
 [project.scripts]
 tfg-kpm = "tfg_kpm.app:app"
