@@ -31,8 +31,9 @@ def install_package(repository: str, branch: str):
     response = requests.get(zip_url)
     
     if not response.ok:
+        console.log("Failed to fetch package archive", style="bold red")
         error(f"Failed to fetch [red]{name}[/red]")    
-    console.log("Finished getting package metadata", style="bold green")
+    console.log("Finished fetching package archive", style="bold green")
     spinner.update(status="Extracting package archive")
     with zipfile.ZipFile(io.BytesIO(response.content)) as z:
         base_folder = f"{repository}-{branch}/"
@@ -69,22 +70,22 @@ def install_package(repository: str, branch: str):
     spinner.update("Defining recipe classes")
     for v in data.recipes:
         insert_after(server_lines, recipe_marker, v)
-        console.log(f"Finished Defining {v}", style="bold green")
+        console.log(f"Finished Defining [bright_magenta]{v.replace(" ", "").replace("(event)", "")}[/bright_magenta]", style="bold green")
     console.log("Finished Defining recipe classes", style="bold green")
     spinner.update("Defining item tag classes")
     for v in data.itemtags:
         insert_after(server_lines, itemtag_marker, v)
-        console.log(f"Finished Defining {v}", style="bold green")
+        console.log(f"Finished Defining [bright_magenta]{v.replace(" ", "").replace("(event)", "")}[/bright_magenta]", style="bold green")
     console.log("Finished Defining item tag classes", style="bold green")
     spinner.update("Defining block tag classes")
     for v in data.blocktags:
         insert_after(server_lines, blocktag_marker, v)
-        console.log(f"Finished Defining {v}", style="bold green")
+        console.log(f"Finished Defining [bright_magenta]{v.replace(" ", "").replace("(event)", "")}[/bright_magenta]", style="bold green")
     console.log("Finished Defining block tag classes", style="bold green")
     spinner.update("Defining fluid tag classes")
     for v in data.fluidtags:
         insert_after(server_lines, fluidtag_marker, v)
-        console.log(f"Finished Defining {v}", style="bold green")
+        console.log(f"Finished Defining [bright_magenta]{v.replace(" ", "").replace("(event)", "")}[/bright_magenta]", style="bold green")
     console.log("Finished Defining fluid tag classes", style="bold green")
     spinner.update("Writing to main_server_script.js")
     with open(main_server_script, "w", encoding="utf-8") as f:
