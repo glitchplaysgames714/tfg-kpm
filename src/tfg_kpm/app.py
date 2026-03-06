@@ -23,19 +23,3 @@ def uninstall(package: str):
     Errors(["invalid_server"]).check()
     
     uninstall_package(package)
-    
-    
-
-@app.command()
-def hello(name: str):
-    print(f"Hello {name}")
-
-
-@app.command()
-def goodbye(name: str, formal: bool = False):
-    if formal:
-        print(f"Goodbye Ms. {name}. Have a good day.")
-    else:
-        print(f"Bye {name}!")
-
-app()

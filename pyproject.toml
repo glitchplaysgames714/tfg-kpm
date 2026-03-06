@@ -1,6 +1,6 @@
 [project]
 name = "tfg-kpm"
-version = "1.0.0"
+version = "1.0.1"
 description = "The first package manager for terrafirmagreg addons."
 readme = "README.md"
 requires-python = ">=3.14"

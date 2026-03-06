@@ -6,9 +6,9 @@
   ![banner](https://github.com/glitchplaysgames714/tfg-kpm/blob/main/.assets/banner.png?raw=true)
 
   <p align="center">
-    <a href="https://github.com/glitchplaysgames714/Modpack-Modern/wiki">Developer docs</a>
+    <a href="https://github.com/glitchplaysgames714/tfg-kpm/wiki">Developer docs</a>
     ·
-    <a href="https://github.com/TerraFirmaGreg-Team/Modpack-Modern/issues">Report Bugs</a>
+    <a href="https://github.com/TerraFirmaGreg-Team/tfg-kpm/issues">Report Bugs</a>
   </p>
 </div>
 
