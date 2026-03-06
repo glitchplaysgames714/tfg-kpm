@@ -85,4 +85,5 @@ tfg-kpm uninstall <package name>
 
 <h2 align="center">External Credits and Special Thanks</h2>
 
-HUGE thanks to [Caylies's Dexi](https://github.com/Caylies/DexI/) for the insperation
+HUGE thanks to [Caylies's Dexi](https://github.com/Caylies/DexI/) for the inspiration
+
