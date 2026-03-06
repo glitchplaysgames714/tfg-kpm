@@ -10,12 +10,14 @@ from rich.console import Console
 from tomlkit import load
 import os
 import typer
+import time
 
 
 def install_package(repository: str, branch: str):
     
     console = Console()
     with console.status("Getting package metadata from github") as spinner:
+        start = time.perf_counter()
         if repository.count("/") != 1:
             console.log("Failed to get package metadata", style="bold red")
             error("Invalid package format, expected [red]author/repo[/red]")
@@ -99,7 +101,16 @@ def install_package(repository: str, branch: str):
             for item in server_lines:
                 f.write(f"{item}\n")
     console.log("Finished writing to main_server_script.js", style="bold green")
-    console.log(f"Installed {data.name}", style="bold green")
+    end = time.perf_counter()
+    elapsed = end - start
+
+    if elapsed < 1:
+        console.log(f"Installed {data.name} in [bright_cyan]{elapsed * 1000:.0f}[/bright_cyan] milliseconds", style="bold green")
+    elif elapsed < 60:
+        console.log(f"Installed {data.name} in [bright_cyan]{elapsed:.2f}[/bright_cyan] seconds", style="bold green")
+    else:
+        minutes = elapsed / 60
+        console.log(f"Installed {data.name} in [bright_cyan]{minutes:.2f}[/bright_cyan] minutes", style="bold green")
         
 def list_packages():
     packagefolder = Path.cwd() / "kubejs" / "server_scripts" / "external_packages"
@@ -115,7 +126,6 @@ def list_packages():
 def uninstall_package(package: str):
     console = Console()
     
-    
     installedpackages = list_packages()
     if package not in installedpackages:
         error(f"{package} is [red]not[/red] installed!")
@@ -125,8 +135,9 @@ def uninstall_package(package: str):
     console.log(f"Found existing installation: {package}", style="bold green")
     console.log(f"Uninstalling {package}:")
     console.log("  Would remove:")
-    console.log(f"    [cyan]{packagedir.as_posix()}[/cyan]")
+    console.log(f"    [bright_cyan]{packagedir.as_posix()}[/bright_cyan]")
     typer.confirm("Proceed?", abort=True)
+    start = time.perf_counter()
     with console.status("Parsing registry file") as spinner:
         registry = packagedir / "registry.toml"
         with open(registry, "r", encoding="utf-8") as f:
@@ -159,7 +170,16 @@ def uninstall_package(package: str):
         shutil.rmtree(packagedir)
         
         console.log("Finished removing package", style="bold green")
-    console.log(f"Uninstalled {package}", style="bold green")
+    end = time.perf_counter()
+    elapsed = end - start
+
+    if elapsed < 1:
+        console.log(f"Uninstalled {package} in [bright_cyan]{elapsed * 1000:.0f}[/bright_cyan] milliseconds", style="bold green")
+    elif elapsed < 60:
+        console.log(f"Uninstalled {package} in [bright_cyan]{elapsed:.2f}[/bright_cyan] seconds", style="bold green")
+    else:
+        minutes = elapsed / 60
+        console.log(f"Uninstalled {package} in [bright_cyan]{minutes:.2f}[/bright_cyan] minutes", style="bold green")
     
     
     
