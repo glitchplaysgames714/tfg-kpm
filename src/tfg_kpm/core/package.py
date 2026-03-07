@@ -25,8 +25,9 @@ class Package:
         package_data = data["tfg-kpm"]["package"]
         if "name" not in main_data:
             error("Missing [red]name[/red] field in [red]registry.toml[/red]")
-        if "recipes" not in package_data and "itemtags" not in package_data and "blocktags" not in package_data and "fluidtags" not in package_data:
-            error("Empty [red]package[/red] field in [red]registry.toml[/red] this package does nothing!")
+        # removed this to allow for event only packages
+        # if "recipes" not in package_data and "itemtags" not in package_data and "blocktags" not in package_data and "fluidtags" not in package_data:
+        #     error("Empty [red]package[/red] field in [red]registry.toml[/red] this package does nothing!")
         
         fields = {
             "name": main_data["name"],
