@@ -8,7 +8,7 @@
 
   [![PyPI - License](https://img.shields.io/pypi/l/tfg-kpm?style=for-the-badge&logo=creativecommons&logoColor=%23ED592F)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
   [![PyPI - Version](https://img.shields.io/pypi/v/tfg-kpm?style=for-the-badge&logo=pypi&logoColor=%233775A9)](https://pypi.org/project/tfg-kpm/)
-  [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/glitchplaysgames714/tfg-kpm/CI.yml?style=for-the-badge&logo=github&logoColor=%23181717&label=CI)](github.com/glitchplaysgames714/tfg-kpm/actions)
+  [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/glitchplaysgames714/tfg-kpm/CI.yml?style=for-the-badge&logo=github&logoColor=%23181717&label=CI)](https://github.com/glitchplaysgames714/tfg-kpm/actions/workflows/CI.yml)
 
 
 
