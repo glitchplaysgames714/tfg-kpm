@@ -1,0 +1,73 @@
+name: Bug report
+description: Template for bug reports
+title: '[🐛]: '
+labels:
+  - bug
+assignees:
+  - glitchplaysgames714
+body:
+  - type: checkboxes
+    id: duplicate
+    attributes:
+      label: Was this bug reported before?
+      description: ' Please search OPEN/CLOSED issues before submitting, as the issue may have already been reported/addressed.'
+      options:
+        - label: No it was not.
+          required: true
+  - type: input
+    id: os
+    attributes:
+      label: What operating system are you on.
+      description: Write which OS your PC is running on.
+      placeholder: 'Example: Windows 11'
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version of tfg-kpm.
+      description: Write which version of tfg-kpm you are using.
+      placeholder: 'Example: 2.0.0'
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Please provide the error you are receiving if you are getting one.
+  - type: textarea
+    id: expected
+    validations:
+      required: true
+    attributes:
+      label: "Expected Behavior"
+      description: "What you expected to happen. Attach screenshots here as necessary."
+      placeholder: "Example: Expected to produce X by consuming Y."
+
+  - type: textarea
+    id: result
+    validations:
+      required: true
+    attributes:
+      label: "Actual Behavior"
+      description: "What happened despite your expectations. Attach screenshots here as necessary."
+      placeholder: "Example: Produced one X but Y was not consumed."
+
+  - type: textarea
+    id: reproduction
+    validations:
+      required: true
+    attributes:
+      label: "Steps to Reproduce"
+      description: "How to reproduce the bug."
+      placeholder: "Example: 1) I did X..."
+
+  - type: textarea
+    id: additional-info
+    validations:
+      required: false
+    attributes:
+      label: "Additional Information"
+      description: "Any additional information you wish to provide. Please add anything which did not fit into the other sections here."
+      placeholder: "Example: This is likely caused by X because..."
+
+  - type: markdown
