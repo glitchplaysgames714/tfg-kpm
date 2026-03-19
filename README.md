@@ -16,7 +16,7 @@
   <p align="center">
     <a href="https://tfg-kpm.glitchpdev.com">Developer docs</a>
     ·
-    <a href="https://github.com/TerraFirmaGreg-Team/tfg-kpm/issues">Report Bugs</a>
+    <a href="https://github.com/glitchplaysgames714/tfg-kpm/issues">Report Bugs</a>
   </p>
 </div>
 
