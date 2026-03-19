@@ -4,9 +4,17 @@
   <h1>TerraFirmaGreg - Kube Package Manager</h1>
   
   ![banner](https://github.com/glitchplaysgames714/tfg-kpm/blob/main/.assets/banner.png?raw=true)
+  <p align="center"> 
 
+  [![PyPI - License](https://img.shields.io/pypi/l/tfg-kpm?style=for-the-badge&logo=creativecommons&logoColor=%23ED592F)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)
+  [![PyPI - Version](https://img.shields.io/pypi/v/tfg-kpm?style=for-the-badge&logo=pypi&logoColor=%233775A9)](https://pypi.org/project/tfg-kpm/)
+  [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/glitchplaysgames714/tfg-kpm/CI.yml?style=for-the-badge&logo=github&logoColor=%23181717&label=CI)](github.com/glitchplaysgames714/tfg-kpm/actions)
+
+
+
+  </p>
   <p align="center">
-    <a href="https://github.com/glitchplaysgames714/tfg-kpm/wiki">Developer docs</a>
+    <a href="https://tfg-kpm.glitchpdev.com">Developer docs</a>
     ·
     <a href="https://github.com/TerraFirmaGreg-Team/tfg-kpm/issues">Report Bugs</a>
   </p>
@@ -86,4 +94,3 @@ tfg-kpm uninstall <package name>
 <h2 align="center">External Credits and Special Thanks</h2>
 
 HUGE thanks to [Caylies's Dexi](https://github.com/Caylies/DexI/) for the inspiration
-
